@@ -15,7 +15,7 @@ interface ISemensProps extends IPageProps {
 const Semens: NextPage = ({
   semenList,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
-  return <>Welcome to K39</>
+  return <Semen semenList={semenList} />
 }
 
 export default Semens

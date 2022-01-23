@@ -8,32 +8,32 @@ import axiosApiRequest, {
   EnumRequestMethod,
   IAxiosResponse,
 } from '../util/axios'
-import Semen from '../container/semen'
-interface ISemensProps extends IPageProps {
-  semenList: IAxiosResponse
+import Cattle from '../container/cattle'
+interface IPizzasProps extends IPageProps {
+  pizzaList: IAxiosResponse
 }
-const Semens: NextPage = ({
-  semenList,
+const Pizzas: NextPage = ({
+  pizzaList,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
-  return <>Welcome to K39</>
+  return <Cattle />
 }
 
-export default Semens
+export default Pizzas
 
 export const getServerSideProps: GetServerSideProps = async (): Promise<{
-  props: ISemensProps
+  props: IPizzasProps
   notFound: boolean
 }> => {
-  const semenList: IAxiosResponse = await axiosApiRequest(
+  const pizzaList: IAxiosResponse = await axiosApiRequest(
     EnumRequestMethod.GET,
-    '/semens'
+    '/products'
   )
 
   return {
     props: {
-      semenList,
-      header: { title: 'นำ้เชื้อ' },
+      pizzaList,
+      header: { title: 'Our Pizza' },
     },
-    notFound: semenList.error,
+    notFound: pizzaList.error,
   }
 }
