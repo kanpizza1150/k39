@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components'
+import Button from '../../components/Button'
 
 export const Container = styled.div`
   padding: ${({ theme }) => theme.pagePadding};
@@ -84,4 +85,7 @@ export const AmountWrapper = styled.div`
     font-size: 10px;
     color: ${({ theme }) => theme.colors.primary};
   }
+`
+export const FilterButton = styled(Button)`
+  margin: 0 5px;
 `

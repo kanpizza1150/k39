@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import React, { FC, useState } from 'react'
-import Button from '../../components/Button'
 import { IAxiosResponse } from '../../util/axios'
 import { ISemen } from '../../util/types'
 import * as Styled from './styed'
@@ -45,13 +44,13 @@ const Semen: FC<IProps> = ({ semenList }: IProps) => {
       <h1>น้ำเชื้อ</h1>
       <Styled.FilterButtonWrapper>
         {filterList.map((item: { label: string; value: IFilter }) => (
-          <Button
+          <Styled.FilterButton
             key={item.value}
             onClick={() => handleFilter(item.value)}
             isActive={item.value === filter}
           >
             {item.label}
-          </Button>
+          </Styled.FilterButton>
         ))}
       </Styled.FilterButtonWrapper>
       {filteredSemenList.map((semen: ISemen) => (

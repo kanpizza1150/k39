@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import { dbConnect } from '../../../util/connection'
-import apiHandler, { handleCatch } from '../../../util/handler'
+import apiHandler, { getMethod, handleCatch } from '../../../util/handler'
 import { ResponseFuncs } from '../../../util/types'
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
@@ -9,16 +9,16 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const { id } = query
   const handleCase: ResponseFuncs = {
     PUT: async (req: NextApiRequest, res: NextApiResponse) => {
-      const { Product } = await dbConnect()
+      const { Cattle } = await dbConnect()
       res.json(
-        await Product.findOneAndUpdate({ _id: id }, body, {
+        await Cattle.findOneAndUpdate({ _id: id }, body, {
           upsert: true,
         }).catch(catcher)
       )
     },
     DELETE: async (req: NextApiRequest, res: NextApiResponse) => {
-      const { Product } = await dbConnect()
-      res.json(await Product.deleteOne({ _id: id }).catch(catcher))
+      const { Cattle } = await dbConnect()
+      res.json(await Cattle.deleteOne({ _id: id }).catch(catcher))
     },
   }
 

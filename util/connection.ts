@@ -1,4 +1,5 @@
-import mongoose, { Model } from 'mongoose'
+import mongoose from 'mongoose'
+import CattleSchema from '../model/Cattle'
 import OrderSchema from '../model/Order'
 import ProductSchema from '../model/Product'
 import SemenSchema from '../model/Semen'
@@ -13,11 +14,9 @@ export const dbConnect = async () => {
     .catch((err) => console.log(err))
   console.log('===Mongoose Connection Established===')
 
-  const Product =
-    mongoose.models.Product || mongoose.model('Product', ProductSchema)
-
-  const Order = mongoose.models.Order || mongoose.model('Order', OrderSchema)
   const Semen = mongoose.models.Semen || mongoose.model('Semen', SemenSchema)
+  const Cattle =
+    mongoose.models.Cattle || mongoose.model('Cattle', CattleSchema)
 
-  return { conn, Product, Order, Semen }
+  return { conn, Semen, Cattle }
 }

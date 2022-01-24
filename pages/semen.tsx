@@ -32,7 +32,7 @@ export const getServerSideProps: GetServerSideProps = async (): Promise<{
   return {
     props: {
       semenList,
-      header: { title: 'นำ้เชื้อ' },
+      header: { title: 'Our Semen' },
     },
     notFound: semenList.error,
   }

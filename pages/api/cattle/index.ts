@@ -7,12 +7,12 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const catcher = (error: Error) => handleCatch(res, error)
   const handleCase: ResponseFuncs = {
     GET: async (req: NextApiRequest, res: NextApiResponse) => {
-      const { Order } = await dbConnect()
-      res.json(await Order.find({}).catch(catcher))
+      const { Cattle } = await dbConnect()
+      res.json(await Cattle.find({}).catch(catcher))
     },
     POST: async (req: NextApiRequest, res: NextApiResponse) => {
-      const { Order } = await dbConnect()
-      res.json(await Order.create(req.body).catch(catcher))
+      const { Cattle } = await dbConnect()
+      res.json(await Cattle.create(req.body).catch(catcher))
     },
   }
   apiHandler(req, res, handleCase)

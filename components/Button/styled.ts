@@ -1,10 +1,9 @@
 import styled, { css } from 'styled-components'
 
-export const Button = styled.button<{ isActive: boolean }>`
+export const Button = styled.button<{ isActive?: boolean }>`
   border-radius: ${({ theme }) => theme.borderRadius};
   background-color: pink;
   padding: 0 10px;
-  margin: 0 5px;
   font-size: 12px;
   border: 1px solid;
   box-shadow: ${({ theme }) => theme.boxShadow};
