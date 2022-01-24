@@ -63,7 +63,6 @@ const Semen: FC<IProps> = ({ semenList }: IProps) => {
             loading='lazy'
           />
           <Styled.Content>
-            <Styled.Title>{semen._id}</Styled.Title>
             <Styled.Title>{semen.title}</Styled.Title>
             <Styled.Type type={semen.type}>
               <p>{semen.type > 0 ? 'แยกเเพศ' : 'รวมเพศ'}</p>
