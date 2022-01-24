@@ -9,13 +9,14 @@ import axiosApiRequest, {
   IAxiosResponse,
 } from '../util/axios'
 import Semen from '../container/semen'
+import Dashboard from '../container/dashboard'
 interface ISemensProps extends IPageProps {
   semenList: IAxiosResponse
 }
 const Semens: NextPage = ({
   semenList,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
-  return <>Welcome to K39</>
+  return <Dashboard />
 }
 
 export default Semens

@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import React, { FC, useState } from 'react'
+import Button from '../../components/Button'
 import { IAxiosResponse } from '../../util/axios'
 import { ISemen } from '../../util/types'
 import * as Styled from './styed'
@@ -43,34 +44,37 @@ const Semen: FC<IProps> = ({ semenList }: IProps) => {
     <Styled.Container>
       <h1>น้ำเชื้อ</h1>
       <Styled.FilterButtonWrapper>
-        {filterList.map((filter: { label: string; value: IFilter }) => (
-          <Styled.FilterButton
-            key={filter.value}
-            onClick={() => handleFilter(filter.value)}
+        {filterList.map((item: { label: string; value: IFilter }) => (
+          <Button
+            key={item.value}
+            onClick={() => handleFilter(item.value)}
+            isActive={item.value === filter}
           >
-            {filter.label}
-          </Styled.FilterButton>
+            {item.label}
+          </Button>
         ))}
       </Styled.FilterButtonWrapper>
       {filteredSemenList.map((semen: ISemen) => (
         <Styled.Card key={semen._id}>
-          <Image
-            src={semen?.img || ''}
-            alt={semen.title}
-            width={680}
-            height={400}
-            layout='responsive'
-            loading='lazy'
-          />
-          <Styled.Content>
-            <Styled.Title>{semen.title}</Styled.Title>
-            <Styled.Type type={semen.type}>
-              <p>{semen.type > 0 ? 'แยกเเพศ' : 'รวมเพศ'}</p>
-            </Styled.Type>
-            <p>{semen.price.toLocaleString()} ฿/โดส</p>
-            <p>{semen.stock} โดส</p>
-            <p>ฝากไว้ที่ {semen.leaveAt}</p>
-          </Styled.Content>
+          <Styled.ImageWrapper>
+            <Image
+              src={semen?.img || ''}
+              alt={semen.title}
+              layout='fill'
+              loading='lazy'
+            />
+          </Styled.ImageWrapper>
+          <Styled.ContentWrapper>
+            <Styled.Content>
+              <Styled.Title>{semen.title}</Styled.Title>
+              <Styled.Type type={semen.type}>
+                {semen.type > 0 ? 'แยกเเพศ' : 'รวมเพศ'}
+              </Styled.Type>
+              <p>฿{semen.price.toLocaleString()}</p>
+              <p>{semen.stock} โดส</p>
+              <p>ฝากไว้ที่ {semen.leaveAt}</p>
+            </Styled.Content>
+          </Styled.ContentWrapper>
         </Styled.Card>
       ))}
     </Styled.Container>

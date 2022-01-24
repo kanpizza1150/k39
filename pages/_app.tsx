@@ -6,6 +6,7 @@ import { ThemeProvider } from 'styled-components'
 import GlobalStyle, { darkTheme, lightTheme } from '../styles/globalStyled'
 import * as Styled from '../styles/main'
 import '@fontsource/prompt'
+import '@fontsource/prompt/700.css'
 const Navbar = dynamic(() => import('../components/Navbar'), { ssr: false })
 
 function MyApp({ Component, pageProps }: AppProps) {
