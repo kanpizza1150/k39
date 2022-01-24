@@ -27,3 +27,15 @@ export const Card = styled.div`
   overflow: hidden;
   position: relative;
 `
+export const FilterButton = styled.button`
+  border-radius: 50px;
+  border: 1px solid red;
+  padding: 0 5px;
+  margin: 0 5px;
+`
+export const FilterButtonWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px 0;
+`
