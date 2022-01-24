@@ -5,6 +5,9 @@ const nextConfig = {
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')],
   },
+  images: {
+    domains: ['https://k39.netlify.app/'],
+  },
 }
 
 module.exports = nextConfig
