@@ -60,3 +60,28 @@ export const Title = styled.div`
   font-weight: bold;
   text-align: center;
 `
+
+export const DetailWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+`
+export const AmountWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  font-weight: bold;
+  color: ${({ theme }) => theme.colors.primary};
+
+  span {
+    font-size: 10px;
+    font-weight: normal;
+    color: ${({ theme }) => theme.colors.greyDark};
+  }
+  p {
+    font-size: 10px;
+    color: ${({ theme }) => theme.colors.primary};
+  }
+`

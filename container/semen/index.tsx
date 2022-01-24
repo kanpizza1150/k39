@@ -70,9 +70,23 @@ const Semen: FC<IProps> = ({ semenList }: IProps) => {
               <Styled.Type type={semen.type}>
                 {semen.type > 0 ? 'แยกเเพศ' : 'รวมเพศ'}
               </Styled.Type>
-              <p>฿{semen.price.toLocaleString()}</p>
-              <p>{semen.stock} โดส</p>
-              <p>ฝากไว้ที่ {semen.leaveAt}</p>
+              <Styled.DetailWrapper>
+                <Styled.AmountWrapper>
+                  <span>คงเหลือ</span>
+                  {semen.stock}
+                  <span>โดส</span>
+                </Styled.AmountWrapper>{' '}
+                <Styled.AmountWrapper>
+                  <span>ราคา</span>
+                  {semen.price.toLocaleString()}
+                  <span>บาท/โดส</span>
+                </Styled.AmountWrapper>
+                <Styled.AmountWrapper>
+                  <span>ฝากไว้ที่</span>
+                  <p>{semen.leaveAt ?? '-'}</p>
+                  <span />
+                </Styled.AmountWrapper>
+              </Styled.DetailWrapper>
             </Styled.Content>
           </Styled.ContentWrapper>
         </Styled.Card>
