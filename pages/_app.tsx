@@ -1,17 +1,36 @@
 import type { AppProps } from 'next/app'
 import dynamic from 'next/dynamic'
 import Head from 'next/head'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import Router from 'next/router'
 import { ThemeProvider } from 'styled-components'
-import GlobalStyle, { darkTheme, lightTheme } from '../styles/globalStyled'
 import * as Styled from '../styles/main'
+import GlobalStyle, { darkTheme, lightTheme } from '../styles/globalStyled'
 import '@fontsource/prompt'
 import '@fontsource/prompt/700.css'
+import Loading from '../container/Loading'
 const Navbar = dynamic(() => import('../components/Navbar'), { ssr: false })
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [isDarkTheme, setIsDarkTheme] = useState<boolean>(false)
-
+  const [loading, setLoading] = useState(false)
+  useEffect(() => {
+    const start = () => {
+      setLoading(true)
+    }
+    const end = () => {
+      setLoading(false)
+    }
+    Router.events.on('routeChangeStart', start)
+    Router.events.on('routeChangeComplete', end)
+    Router.events.on('routeChangeError', end)
+    return () => {
+      Router.events.off('routeChangeStart', start)
+      Router.events.off('routeChangeComplete', end)
+      Router.events.off('routeChangeError', end)
+    }
+  }, [])
+  console.log('loading :>> ', loading)
   return (
     <>
       <Head>
@@ -28,7 +47,8 @@ function MyApp({ Component, pageProps }: AppProps) {
           >
             {isDarkTheme ? '🌙' : '🌝'}
           </Styled.ThemeButton> */}
-          <Component {...pageProps} />
+          {loading ? <Loading /> : <Component {...pageProps} />}
+
           <Navbar />
         </Styled.Container>
       </ThemeProvider>
