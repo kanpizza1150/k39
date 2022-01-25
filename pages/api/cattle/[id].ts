@@ -8,6 +8,10 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const { body, query } = req
   const { id } = query
   const handleCase: ResponseFuncs = {
+    GET: async (req: NextApiRequest, res: NextApiResponse) => {
+      const { Cattle } = await dbConnect()
+      res.json(await Cattle.findOne({ _id: id }).catch(catcher))
+    },
     PUT: async (req: NextApiRequest, res: NextApiResponse) => {
       const { Cattle } = await dbConnect()
       res.json(

@@ -3,14 +3,11 @@ import type {
   InferGetServerSidePropsType,
   NextPage,
 } from 'next'
-import { IPageProps, IPizza, IPizzaOption } from '../util/types'
-import axiosApiRequest, {
-  EnumRequestMethod,
-  IAxiosResponse,
-} from '../util/axios'
+import { IPageProps, ISemenListAxios } from '../util/types'
+import axiosApiRequest, { EnumRequestMethod } from '../util/axios'
 import Semen from '../container/semen'
 interface ISemensProps extends IPageProps {
-  semenList: IAxiosResponse
+  semenList: ISemenListAxios
 }
 const Semens: NextPage = ({
   semenList,
@@ -24,7 +21,7 @@ export const getServerSideProps: GetServerSideProps = async (): Promise<{
   props: ISemensProps
   notFound: boolean
 }> => {
-  const semenList: IAxiosResponse = await axiosApiRequest(
+  const semenList: ISemenListAxios = await axiosApiRequest(
     EnumRequestMethod.GET,
     '/semens'
   )

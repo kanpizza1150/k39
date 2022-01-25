@@ -1,37 +1,38 @@
 import Image from 'next/image'
 import React, { FC, useState } from 'react'
-import { IAxiosResponse } from '../../util/axios'
-import { ISemen } from '../../util/types'
+import { EnumSemenType } from '../../util/enums'
+import { ISemen, ISemenListAxios } from '../../util/types'
 import * as Styled from './styed'
 interface IProps {
-  semenList: IAxiosResponse
+  semenList: ISemenListAxios
 }
-enum IFilter {
+
+enum FilterListAll {
   ALL = 'all',
-  SEXED = 1,
-  REGULAR = 0,
 }
+type IFilterList = FilterListAll | EnumSemenType
+
 const Semen: FC<IProps> = ({ semenList }: IProps) => {
-  const [filter, setFilter] = useState<IFilter>(IFilter.ALL)
+  const [filter, setFilter] = useState<IFilterList>(FilterListAll.ALL)
   const [filteredSemenList, setFilteredSemenList] = useState<Array<ISemen>>(
     semenList.data
   )
 
-  const filterList: Array<{ label: string; value: IFilter }> = [
+  const filterList: Array<{ label: string; value: IFilterList }> = [
     {
       label: 'ทั้งหมด',
-      value: IFilter.ALL,
+      value: FilterListAll.ALL,
     },
     {
       label: 'แยกเพศ',
-      value: IFilter.SEXED,
+      value: EnumSemenType.SEXED,
     },
     {
       label: 'รวมเพศ',
-      value: IFilter.REGULAR,
+      value: EnumSemenType.REGULAR,
     },
   ]
-  const handleFilter = (val: IFilter) => {
+  const handleFilter = (val: IFilterList) => {
     setFilter(val)
     let filtered: Array<ISemen> = semenList.data
     if (val !== 'all') {
@@ -43,7 +44,7 @@ const Semen: FC<IProps> = ({ semenList }: IProps) => {
     <Styled.Container>
       <h1>น้ำเชื้อ</h1>
       <Styled.FilterButtonWrapper>
-        {filterList.map((item: { label: string; value: IFilter }) => (
+        {filterList.map((item: { label: string; value: IFilterList }) => (
           <Styled.FilterButton
             key={item.value}
             onClick={() => handleFilter(item.value)}

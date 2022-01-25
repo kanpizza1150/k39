@@ -11,7 +11,7 @@ const CattleSchema = new Schema(
     pregnency: {
       date: { type: String },
       semen: { title: { type: String }, dose: { type: Number } },
-      status: { type: Number, default: 0 }, //0=fail, 1=success, 2=pass 1st, 3=pass 2ืnd, 4=idles
+      status: { type: Number, default: 4 }, //0=fail, 1=success, 2=pass 1st, 3=pass 2ืnd, 4=idle, 5=inprogress
       history: [
         {
           date: { type: String },

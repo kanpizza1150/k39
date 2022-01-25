@@ -3,14 +3,11 @@ import type {
   InferGetServerSidePropsType,
   NextPage,
 } from 'next'
-import { IPageProps, IPizza, IPizzaOption } from '../util/types'
-import axiosApiRequest, {
-  EnumRequestMethod,
-  IAxiosResponse,
-} from '../util/axios'
-import CattleContainer from '../container/cattle'
+import { ICattleListAxios, IPageProps } from '../../util/types'
+import axiosApiRequest, { EnumRequestMethod } from '../../util/axios'
+import CattleContainer from '../../container/cattle'
 interface ICattleProps extends IPageProps {
-  cattleList: IAxiosResponse
+  cattleList: ICattleListAxios
 }
 const Cattle: NextPage = ({
   cattleList,
@@ -24,7 +21,7 @@ export const getServerSideProps: GetServerSideProps = async (): Promise<{
   props: ICattleProps
   notFound: boolean
 }> => {
-  const cattleList: IAxiosResponse = await axiosApiRequest(
+  const cattleList: ICattleListAxios = await axiosApiRequest(
     EnumRequestMethod.GET,
     '/cattle'
   )

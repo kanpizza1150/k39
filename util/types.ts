@@ -1,15 +1,11 @@
+import { IAxiosResponse } from './axios'
+import { EnumPregnencyStatus } from './enums'
+
 export interface ResponseFuncs {
   GET?: Function
   POST?: Function
   PUT?: Function
   DELETE?: Function
-}
-
-export enum EnumResponseStatus {
-  IDLE = 'idle',
-  LOADING = 'loading',
-  SUCCEEDED = 'succeeded',
-  FAILED = 'failed',
 }
 
 export type ISetState = React.Dispatch<React.SetStateAction<any>>
@@ -19,28 +15,6 @@ export interface IPageProps {
   }
 }
 
-export interface IPizzaOption {
-  text: string
-  price: number
-}
-
-export interface IPizza {
-  _id: string
-  title: string
-  desc: string
-  img: string
-  prices: Array<number>
-  extraOptions: Array<IPizzaOption>
-}
-
-export interface IOrder {
-  _id: string
-  customer: string
-  address: string
-  total: number
-  status: 0 | 1 | 2 | 3
-  method: 0 | 1 | 2 | 3
-}
 export interface ISemen {
   _id: string
   title: string
@@ -50,4 +24,40 @@ export interface ISemen {
   buyFrom?: string
   img?: string
   type: 0 | 1 //0=รวมเพศ, 1=แยกเพศ
+}
+export interface ICattle {
+  _id: string
+  name: string
+  nickname?: string
+  img?: Array<string>
+  dob?: string
+  price?: string
+  entryDate?: string
+  pregnency?: {
+    date?: string
+    semen?: { title: string; dose: number }
+    status?: EnumPregnencyStatus
+    history?: [
+      {
+        date: string
+        semen: string
+        status: EnumPregnencyStatus
+      }
+    ]
+  }
+  sire?: string
+  dam?: string
+}
+
+export interface ICattleListAxios extends Omit<IAxiosResponse, 'data'> {
+  data: ICattle[]
+}
+export interface ICattleDetailAxios extends Omit<IAxiosResponse, 'data'> {
+  data: ICattle
+}
+export interface ISemenDetailAxios extends Omit<IAxiosResponse, 'data'> {
+  data: ISemen
+}
+export interface ISemenListAxios extends Omit<IAxiosResponse, 'data'> {
+  data: ISemen[]
 }

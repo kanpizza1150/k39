@@ -1,4 +1,5 @@
 import axios, { AxiosError, AxiosResponse } from 'axios'
+import { ICattle, ISemen } from './types'
 export enum EnumRequestMethod {
   GET = 'get',
   PUT = 'put',
