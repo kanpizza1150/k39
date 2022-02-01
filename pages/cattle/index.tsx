@@ -5,14 +5,14 @@ import type {
 } from 'next'
 import { ICattleListAxios, IPageProps } from '../../util/types'
 import axiosApiRequest, { EnumRequestMethod } from '../../util/axios'
-import CattleContainer from '../../container/cattle'
+import CattleList from '../../container/cattle'
 interface ICattleProps extends IPageProps {
   cattleList: ICattleListAxios
 }
 const Cattle: NextPage = ({
   cattleList,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
-  return <CattleContainer cattleList={cattleList} />
+  return <CattleList cattleList={cattleList} />
 }
 
 export default Cattle

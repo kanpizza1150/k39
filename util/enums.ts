@@ -4,7 +4,7 @@ export enum EnumResponseStatus {
   SUCCEEDED = 'succeeded',
   FAILED = 'failed',
 }
-export enum EnumPregnencyStatus {
+export enum EnumPregnancyStatus {
   FAIL = 0,
   SECCESS = 1,
   PASSED_1ST = 2,

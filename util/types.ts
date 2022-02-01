@@ -1,5 +1,5 @@
 import { IAxiosResponse } from './axios'
-import { EnumPregnencyStatus } from './enums'
+import { EnumPregnancyStatus } from './enums'
 
 export interface ResponseFuncs {
   GET?: Function
@@ -33,15 +33,15 @@ export interface ICattle {
   dob?: string
   price?: string
   entryDate?: string
-  pregnency?: {
+  pregnancy?: {
     date?: string
     semen?: { title: string; dose: number }
-    status?: EnumPregnencyStatus
+    status?: EnumPregnancyStatus
     history?: [
       {
         date: string
         semen: string
-        status: EnumPregnencyStatus
+        status: EnumPregnancyStatus
       }
     ]
   }
