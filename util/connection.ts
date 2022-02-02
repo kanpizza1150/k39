@@ -1,7 +1,5 @@
 import mongoose from 'mongoose'
 import CattleSchema from '../model/Cattle'
-import OrderSchema from '../model/Order'
-import ProductSchema from '../model/Product'
 import SemenSchema from '../model/Semen'
 
 // CONNECTING TO MONGOOSE (Get Database Url from .env.local)
