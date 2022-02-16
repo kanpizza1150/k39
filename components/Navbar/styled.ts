@@ -51,12 +51,12 @@ export const Indicator = styled.div<{
 }>`
   border-radius: 50%;
   border: 5px solid white;
-  background-color: white;
+  background-color: ${({ theme }) => theme.colors.semenBackground['1']};
   box-shadow: ${({ theme }) => theme.boxShadow};
   width: 70px;
   height: 70px;
   top: -50%;
-  transform: ${({ activeIndex }) => `translateX(calc(${activeIndex} * 129px))`};
+  transform: ${({ activeIndex }) => `translateX(calc(${activeIndex} * 130px))`};
   position: absolute;
   transition: 0.2s all linear;
   &::before {

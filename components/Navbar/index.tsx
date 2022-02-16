@@ -1,7 +1,10 @@
 import React, { FC } from 'react'
 import * as Styled from './styled'
-
+import cowIcon from '../../public/icons/cow.svg'
+import semenIcon from '../../public/icons/tube.svg'
+import chartIcon from '../../public/icons/chart.svg'
 import { NextRouter, useRouter } from 'next/router'
+import Image from 'next/image'
 interface IProps {}
 const Navbar: FC<IProps> = () => {
   const paths: Record<'home' | 'cattle' | 'semen', string> = {
@@ -35,16 +38,20 @@ const Navbar: FC<IProps> = () => {
               !checkIsActive(paths.cattle) && !checkIsActive(paths.semen)
             }
           >
-            ✨
+            <Image src={chartIcon} alt='' width={25} height={25} />
           </Styled.Icon>
           {activePath === paths.home && <p>สรุป</p>}
         </Styled.LinkButton>
         <Styled.LinkButton onClick={() => handleRedirect(paths.cattle)}>
-          <Styled.Icon isActive={checkIsActive(paths.cattle)}>🐮</Styled.Icon>
+          <Styled.Icon isActive={checkIsActive(paths.cattle)}>
+            <Image src={cowIcon} alt='' width={25} height={25} />
+          </Styled.Icon>
           {checkIsActive(paths.cattle) && <p>วัว</p>}
         </Styled.LinkButton>
         <Styled.LinkButton onClick={() => handleRedirect(paths.semen)}>
-          <Styled.Icon isActive={checkIsActive(paths.semen)}>🧪</Styled.Icon>
+          <Styled.Icon isActive={checkIsActive(paths.semen)}>
+            <Image src={semenIcon} alt='' width={25} height={25} />
+          </Styled.Icon>
           {checkIsActive(paths.semen) && <p>น้ำเชื้อ</p>}
         </Styled.LinkButton>
         <Styled.Indicator activeIndex={getActivePathIndex()} />
