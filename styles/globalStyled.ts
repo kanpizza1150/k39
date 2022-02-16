@@ -1,8 +1,8 @@
 import * as styled from 'styled-components'
 
 const commonTheme: styled.DefaultTheme = {
-  navBarHeight: '70px',
-  pagePadding: '20px 20px 70px 20px',
+  navBarHeight: '80px',
+  pagePadding: '20px 20px 40px 20px',
   borderRadius: '50px',
 }
 export const lightTheme: styled.DefaultTheme = {

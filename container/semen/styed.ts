@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components'
 import Button from '../../components/Button'
 
 export const Container = styled.div`
-  padding: ${({ theme }) => theme.pagePadding};
+  /* padding: ${({ theme }) => theme.pagePadding}; */
 `
 export const Type = styled.div<{ type: number }>`
   border-radius: ${({ theme }) => theme.borderRadius};

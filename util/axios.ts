@@ -1,5 +1,4 @@
 import axios, { AxiosError, AxiosResponse } from 'axios'
-import { ICattle, ISemen } from './types'
 export enum EnumRequestMethod {
   GET = 'get',
   PUT = 'put',
@@ -14,7 +13,7 @@ export interface IAxiosResponse {
 const axiosApiRequest = async (
   method: EnumRequestMethod,
   path: string,
-  config?: Record<string, string>
+  config?: Record<string, any>
 ): Promise<IAxiosResponse> => {
   const { API_URL } = process.env
   let error: boolean = false

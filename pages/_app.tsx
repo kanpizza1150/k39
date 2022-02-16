@@ -9,7 +9,7 @@ import GlobalStyle, { darkTheme, lightTheme } from '../styles/globalStyled'
 import '@fontsource/prompt'
 import '@fontsource/prompt/700.css'
 import Loading from '../container/Loading'
-const Navbar = dynamic(() => import('../components/Navbar'), { ssr: false })
+import Layout from '../components/Layout'
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [isDarkTheme, setIsDarkTheme] = useState<boolean>(false)
@@ -30,7 +30,6 @@ function MyApp({ Component, pageProps }: AppProps) {
       Router.events.off('routeChangeError', end)
     }
   }, [])
-  console.log('loading :>> ', loading)
   return (
     <>
       <Head>
@@ -47,9 +46,9 @@ function MyApp({ Component, pageProps }: AppProps) {
           >
             {isDarkTheme ? '🌙' : '🌝'}
           </Styled.ThemeButton> */}
-          {loading ? <Loading /> : <Component {...pageProps} />}
-
-          <Navbar />
+          <Layout>
+            {loading ? <Loading /> : <Component {...pageProps} />}
+          </Layout>
         </Styled.Container>
       </ThemeProvider>
     </>

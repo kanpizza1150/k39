@@ -13,9 +13,9 @@ const Dashboard: FC<IProp> = ({ semen }: IProp) => {
       <h1>Welcome to K39</h1>
       <div>
         <h2>น้ำเชื้อ</h2>
-        <div>ทั้งหมด {semen.total.toLocaleString()}</div>
-        <div>แยกเพศ {semen.totalSexedSemen.toLocaleString()}</div>
-        <div>รวมเพศ {semen.totalNormalSemen.toLocaleString()}</div>
+        <div>ทั้งหมด {semen?.total?.toLocaleString()}</div>
+        <div>แยกเพศ {semen?.totalSexedSemen?.toLocaleString()}</div>
+        <div>รวมเพศ {semen?.totalNormalSemen?.toLocaleString()}</div>
         <Button onClick={() => router.push('/semen')}>ดูทั้งหมด</Button>
       </div>
     </Styled.Container>

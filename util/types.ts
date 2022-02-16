@@ -47,6 +47,7 @@ export interface ICattle {
   }
   sire?: string
   dam?: string
+  rut?: string[]
 }
 
 export interface ICattleListAxios extends Omit<IAxiosResponse, 'data'> {

@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next'
-import { dbConnect } from '../../../util/connection'
-import apiHandler, { getMethod, handleCatch } from '../../../util/handler'
-import { ResponseFuncs } from '../../../util/types'
+import { dbConnect } from '../../../../util/connection'
+import apiHandler, { getMethod, handleCatch } from '../../../../util/handler'
+import { ResponseFuncs } from '../../../../util/types'
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const catcher = (error: Error) => handleCatch(res, error)
