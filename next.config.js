@@ -10,6 +10,18 @@ const nextConfig = {
   },
   images: {
     domains: ['https://k39.netlify.app/'],
+    loader: 'akamai',
+    path: '',
+  },
+  exportPathMap: async function (
+    defaultPathMap,
+    { dev, dir, outDir, distDir, buildId }
+  ) {
+    return {
+      '/': { page: '/' },
+      '/cattle': { page: '/cattle' },
+      '/semen': { page: '/semen' },
+    }
   },
 }
 

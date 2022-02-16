@@ -1,17 +1,22 @@
 {
   "name": "k39",
   "private": true,
+  "main": "function.js",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "deploy": "yarn build && firebase deploy --only functions,hosting"
   },
   "dependencies": {
     "@fontsource/prompt": "^4.5.0",
     "axios": "^0.25.0",
+    "cross-env": "^7.0.3",
     "date-fns": "^2.28.0",
     "firebase": "^9.6.6",
+    "firebase-admin": "^10.0.2",
+    "firebase-functions": "^3.18.0",
     "mongoose": "^6.1.7",
     "next": "12.0.8",
     "react": "17.0.2",
