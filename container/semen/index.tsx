@@ -1,22 +1,25 @@
-import Image from 'next/image'
-import React, { FC, useState } from 'react'
+import Image from '../../components/Image'
+import React, { FC, useEffect, useState } from 'react'
+import useSemen from '../../hook/semen'
 import { EnumSemenType } from '../../util/enums'
-import { ISemen, ISemenListAxios } from '../../util/types'
+import { ISemen } from '../../util/types'
+import Loading from '../Loading'
 import * as Styled from './styed'
-interface IProps {
-  semenList: ISemenListAxios
-}
 
 enum FilterListAll {
   ALL = 'all',
 }
 type IFilterList = FilterListAll | EnumSemenType
 
-const Semen: FC<IProps> = ({ semenList }: IProps) => {
+const Semen: FC = () => {
+  const { isLoading, isError, semenList } = useSemen()
   const [filter, setFilter] = useState<IFilterList>(FilterListAll.ALL)
-  const [filteredSemenList, setFilteredSemenList] = useState<Array<ISemen>>(
-    semenList.data
-  )
+  const [filteredSemenList, setFilteredSemenList] = useState<Array<ISemen>>([])
+  useEffect(() => {
+    if (!isLoading) {
+      setFilteredSemenList(semenList)
+    }
+  }, [isLoading, isError, semenList])
 
   const filterList: Array<{ label: string; value: IFilterList }> = [
     {
@@ -34,13 +37,16 @@ const Semen: FC<IProps> = ({ semenList }: IProps) => {
   ]
   const handleFilter = (val: IFilterList) => {
     setFilter(val)
-    let filtered: Array<ISemen> = semenList.data
+    let filtered: Array<ISemen> = semenList
     if (val !== 'all') {
-      filtered = semenList.data.filter((semen: ISemen) => semen.type === val)
+      filtered = semenList.filter((semen: ISemen) => semen.type === val)
     }
     setFilteredSemenList(filtered)
   }
-  return (
+
+  return isLoading ? (
+    <Loading />
+  ) : (
     <Styled.Container>
       <h1>น้ำเชื้อ</h1>
       <Styled.FilterButtonWrapper>
@@ -57,12 +63,7 @@ const Semen: FC<IProps> = ({ semenList }: IProps) => {
       {filteredSemenList.map((semen: ISemen) => (
         <Styled.Card key={semen._id}>
           <Styled.ImageWrapper>
-            <Image
-              src={semen?.img || ''}
-              alt={semen.title}
-              layout='fill'
-              loading='lazy'
-            />
+            <Image src={semen?.img || ''} alt={semen.title} layout='fill' />
           </Styled.ImageWrapper>
           <Styled.ContentWrapper>
             <Styled.Content>

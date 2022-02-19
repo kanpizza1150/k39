@@ -4,7 +4,7 @@ import cowIcon from '../../public/icons/cow.svg'
 import semenIcon from '../../public/icons/tube.svg'
 import chartIcon from '../../public/icons/chart.svg'
 import { NextRouter, useRouter } from 'next/router'
-import Image from 'next/image'
+import Image from '../Image'
 interface IProps {}
 const Navbar: FC<IProps> = () => {
   const paths: Record<'home' | 'cattle' | 'semen', string> = {

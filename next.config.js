@@ -2,7 +2,8 @@
 const path = require('path')
 const nextConfig = {
   env: {
-    API_URL: 'http://localhost:3000/api/',
+    API_URL: process.env.API_URL,
+    MONGODB_URL: process.env.MONGODB_URL,
   },
   reactStrictMode: true,
   sassOptions: {
@@ -13,10 +14,7 @@ const nextConfig = {
     loader: 'akamai',
     path: '',
   },
-  exportPathMap: async function (
-    defaultPathMap,
-    { dev, dir, outDir, distDir, buildId }
-  ) {
+  exportPathMap: async function () {
     return {
       '/': { page: '/' },
       '/cattle': { page: '/cattle' },

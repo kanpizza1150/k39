@@ -32,6 +32,7 @@ const axiosApiRequest = async (
       loading = false
     })
     .catch((err: AxiosError) => {
+      console.log('=====================err', err)
       error = true
       loading = false
     })

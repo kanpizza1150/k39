@@ -1,16 +1,17 @@
 {
   "hosting": {
     "public": "public",
+    "site": "k39-ranch",
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
     "rewrites": [
       {
-        "source": "**/**",
+        "source": "**",
         "function": "nextServer"
       }
     ]
   },
   "functions": {
     "source": ".",
-    "runtime": "nodejs16"
+    "runtime": "nodejs12"
   }
 }
