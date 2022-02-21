@@ -21,6 +21,7 @@ export const getServerSideProps: GetServerSideProps = async (): Promise<{
   props: ICattleProps
   notFound: boolean
 }> => {
+  console.log('=====process.env :>> ', process.env)
   const cattleList: ICattleListAxios = await axiosApiRequest(
     EnumRequestMethod.GET,
     '/cattle'

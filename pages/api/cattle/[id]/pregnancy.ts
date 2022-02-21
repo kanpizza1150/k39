@@ -9,7 +9,6 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const { id } = query
   const handleCase: ResponseFuncs = {
     PUT: async (req: NextApiRequest, res: NextApiResponse) => {
-      console.log('body', body)
       const { Cattle } = await dbConnect()
       res.json(
         await Cattle.findOneAndUpdate(

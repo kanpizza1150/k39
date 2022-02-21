@@ -1,9 +1,13 @@
 /** @type {import('next').NextConfig} */
 const path = require('path')
+const withPWA = require('next-pwa')
 const nextConfig = {
   env: {
-    API_URL: process.env.API_URL,
-    MONGODB_URL: process.env.MONGODB_URL,
+    API_URL: process.env.NEXT_PUBLIC_API_URL,
+    MONGODB_URL: process.env.NEXT_PUBLIC_MONGODB_URL,
+  },
+  pwa: {
+    dest: 'public',
   },
   reactStrictMode: true,
   sassOptions: {
@@ -14,13 +18,15 @@ const nextConfig = {
     loader: 'akamai',
     path: '',
   },
-  exportPathMap: async function () {
-    return {
-      '/': { page: '/' },
-      '/cattle': { page: '/cattle' },
-      '/semen': { page: '/semen' },
-    }
+  async redirects() {
+    return [
+      {
+        source: '/',
+        destination: '/home',
+        permanent: true,
+      },
+    ]
   },
 }
 
-module.exports = nextConfig
+module.exports = withPWA(nextConfig)

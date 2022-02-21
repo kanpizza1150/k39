@@ -8,7 +8,6 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const handleCase: ResponseFuncs = {
     GET: async (req: NextApiRequest, res: NextApiResponse) => {
       const { Cattle } = await dbConnect()
-      console.log('await Cattle.find({}', await Cattle.find({}))
       res.json(await Cattle.find({}).catch(catcher))
     },
     POST: async (req: NextApiRequest, res: NextApiResponse) => {

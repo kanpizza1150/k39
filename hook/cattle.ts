@@ -22,7 +22,6 @@ const useCattle = (id: string) => {
       date: pregnancy.date,
       status,
     }
-    console.log('param', param)
     const { data } = await axiosApiRequest(
       EnumRequestMethod.PUT,
       `/cattle/${id}/pregnencyHistory`,

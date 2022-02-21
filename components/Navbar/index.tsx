@@ -8,7 +8,7 @@ import Image from '../Image'
 interface IProps {}
 const Navbar: FC<IProps> = () => {
   const paths: Record<'home' | 'cattle' | 'semen', string> = {
-    home: '/',
+    home: '/home',
     cattle: '/cattle',
     semen: '/semen',
   }
@@ -18,7 +18,14 @@ const Navbar: FC<IProps> = () => {
   }
   const activePath = router.pathname
 
-  const checkIsActive = (path: string): boolean => activePath.includes(path)
+  // const checkIsActive = (path: string): boolean => {
+  //   if (path === paths.semen || path === paths.cattle) {
+  //     return activePath.includes(path)
+  //   } else {
+  //     return true
+  //   }
+  // }
+
   const getActivePathIndex = (): number => {
     if (activePath.includes(paths.cattle)) {
       return 1
@@ -33,27 +40,26 @@ const Navbar: FC<IProps> = () => {
     <Styled.Container>
       <Styled.ButtonWrapper>
         <Styled.LinkButton onClick={() => handleRedirect(paths.home)}>
-          <Styled.Icon
-            isActive={
-              !checkIsActive(paths.cattle) && !checkIsActive(paths.semen)
-            }
-          >
+          <Styled.Icon isActive={getActivePathIndex() === 0}>
             <Image src={chartIcon} alt='' width={25} height={25} />
           </Styled.Icon>
-          {activePath === paths.home && <p>สรุป</p>}
+          {getActivePathIndex() === 0 && <p>สรุป</p>}
         </Styled.LinkButton>
+
         <Styled.LinkButton onClick={() => handleRedirect(paths.cattle)}>
-          <Styled.Icon isActive={checkIsActive(paths.cattle)}>
+          <Styled.Icon isActive={getActivePathIndex() === 1}>
             <Image src={cowIcon} alt='' width={25} height={25} />
           </Styled.Icon>
-          {checkIsActive(paths.cattle) && <p>วัว</p>}
+          {getActivePathIndex() === 1 && <p>วัว</p>}
         </Styled.LinkButton>
+
         <Styled.LinkButton onClick={() => handleRedirect(paths.semen)}>
-          <Styled.Icon isActive={checkIsActive(paths.semen)}>
+          <Styled.Icon isActive={getActivePathIndex() === 2}>
             <Image src={semenIcon} alt='' width={25} height={25} />
           </Styled.Icon>
-          {checkIsActive(paths.semen) && <p>น้ำเชื้อ</p>}
+          {getActivePathIndex() === 2 && <p>น้ำเชื้อ</p>}
         </Styled.LinkButton>
+
         <Styled.Indicator activeIndex={getActivePathIndex()} />
       </Styled.ButtonWrapper>
     </Styled.Container>

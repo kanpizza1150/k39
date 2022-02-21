@@ -10,7 +10,6 @@ export const dbConnect = async () => {
   const conn = await mongoose
     .connect(MONGODB_URL as string)
     .catch((err) => console.log(err))
-  console.log('===Mongoose Connection Established===')
 
   const Semen = mongoose.models.Semen || mongoose.model('Semen', SemenSchema)
   const Cattle =

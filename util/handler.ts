@@ -10,7 +10,6 @@ export const handleCatch: (res: NextApiResponse, error: Error) => void = (
   res: NextApiResponse,
   error: Error
 ): void => {
-  console.log('++++++++++++++++++error', error)
   return res.status(400).json({ error })
 }
 
