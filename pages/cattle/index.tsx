@@ -11,8 +11,15 @@ interface ICattleProps extends IPageProps {
 }
 const Cattle: NextPage = ({
   cattleList,
+  notFound,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
-  return <CattleList cattleList={cattleList} />
+  console.log({ notFound })
+  return (
+    <>
+      {notFound}
+      <CattleList cattleList={cattleList} />
+    </>
+  )
 }
 
 export default Cattle
@@ -21,7 +28,6 @@ export const getServerSideProps: GetServerSideProps = async (): Promise<{
   props: ICattleProps
   notFound: boolean
 }> => {
-  console.log('=====process.env :>> ', process.env)
   const cattleList: ICattleListAxios = await axiosApiRequest(
     EnumRequestMethod.GET,
     '/cattle'

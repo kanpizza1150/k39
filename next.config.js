@@ -1,13 +1,15 @@
-/** @type {import('next').NextConfig} */
 const path = require('path')
 const withPWA = require('next-pwa')
-const nextConfig = {
+
+module.exports = withPWA({
   env: {
     API_URL: process.env.NEXT_PUBLIC_API_URL,
     MONGODB_URL: process.env.NEXT_PUBLIC_MONGODB_URL,
   },
   pwa: {
     dest: 'public',
+    register: true,
+    skipWaiting: true,
   },
   reactStrictMode: true,
   sassOptions: {
@@ -21,12 +23,10 @@ const nextConfig = {
   async redirects() {
     return [
       {
-        source: '/',
-        destination: '/home',
+        source: '/home',
+        destination: '/',
         permanent: true,
       },
     ]
   },
-}
-
-module.exports = withPWA(nextConfig)
+})
