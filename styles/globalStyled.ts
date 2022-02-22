@@ -24,6 +24,7 @@ const commonTheme: styled.DefaultTheme = {
   navBarHeight: '80px',
   pagePadding: '20px 20px 40px 20px',
   borderRadius: '50px',
+  safeInsetButtom: `env(safe-area-inset-bottom)`,
 }
 export const lightTheme: styled.DefaultTheme = {
   ...commonTheme,
@@ -75,7 +76,6 @@ export default styled.createGlobalStyle`
   }
   body {
     background-color: ${({ theme }) => theme.colors.background};
-    min-height: 100vh;
     min-height: -webkit-fill-available;
   }
   button {

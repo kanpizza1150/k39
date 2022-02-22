@@ -6,7 +6,6 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  /* background-color: ${({ theme }) => theme.colors.primary}; */
   background-color: ${COLORS.romance};
   height: ${({ theme }) => theme.navBarHeight};
   box-shadow: 0px -9px 0 0 ${COLORS.dark};
@@ -18,7 +17,6 @@ export const ButtonWrapper = styled.div`
   align-items: flex-end;
   justify-content: space-between;
   background-color: ${COLORS.romance};
-  /* background-color: ${({ theme }) => theme.colors.primary}; */
   position: relative;
 `
 
