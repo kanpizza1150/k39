@@ -4,7 +4,8 @@ export const Container = styled.div`
   width: 100vw;
   /* max-height: 100vh; */
   height: 100%;
-  max-height: -webkit-fill-available;
+  height: -webkit-fill-available;
+  height: calc(100vh - env(safe-area-inset-bottom));
   position: fixed;
   display: grid;
   grid-template-rows: 1fr ${({ theme }) => theme.navBarHeight};

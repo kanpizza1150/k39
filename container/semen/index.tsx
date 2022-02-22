@@ -37,7 +37,7 @@ const Semen: FC<Props> = ({ semenList }: Props) => {
     setFilter(val)
     let filtered: Array<ISemen> = semenList.data
     if (val !== 'all') {
-      filtered = semenList.data.filter((semen: ISemen) => semen.type === val)
+      filtered = semenList.data.filter((semen: ISemen) => semen.type !== val)
     }
     setFilteredSemenList(filtered)
   }
@@ -64,7 +64,7 @@ const Semen: FC<Props> = ({ semenList }: Props) => {
             <Styled.Content>
               <Styled.Title>{semen.title}</Styled.Title>
               <Styled.Type type={semen.type}>
-                {semen.type > 0 ? 'แยกเเพศ' : 'รวมเพศ'}
+                {semen.type > 0 ? 'แยกเพศ' : 'รวมเพศ'}
               </Styled.Type>
               <Styled.DetailWrapper>
                 <Styled.AmountWrapper>

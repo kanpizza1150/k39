@@ -70,8 +70,13 @@ export default styled.createGlobalStyle`
     transition: all 0.2s ease-in;
     font-family: 'Prompt', sans-serif;
   }
+  html {
+    height: -webkit-fill-available;
+  }
   body {
     background-color: ${({ theme }) => theme.colors.background};
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
   }
   button {
     border: none;
