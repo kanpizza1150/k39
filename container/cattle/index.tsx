@@ -14,7 +14,7 @@ const Cattle: FC<IProps> = ({ cattleList }: IProps) => {
       <h1>วัว</h1>
       {cattleList.data.map((cattle: ICattle) => (
         <div key={cattle._id}>
-          {cattle.nickname}
+          {cattle.name} {cattle.nickname ? `(${cattle.nickname})` : ''}
           <Button onClick={() => router.push(`/cattle/${cattle._id}`)}>
             See more
           </Button>

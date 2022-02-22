@@ -12,7 +12,7 @@ import Loading from '../container/Loading'
 import Layout from '../components/Layout'
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const [isDarkTheme, setIsDarkTheme] = useState<boolean>(false)
+  const [isDarkTheme, setIsDarkTheme] = useState<boolean>(true)
   const [loading, setLoading] = useState(false)
   useEffect(() => {
     const start = () => {

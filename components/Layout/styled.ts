@@ -2,7 +2,10 @@ import styled, { css } from 'styled-components'
 
 export const Container = styled.div`
   width: 100vw;
-  max-height: 100vh;
+  /* max-height: 100vh; */
+  height: 100%;
+  max-height: -webkit-fill-available;
+  position: fixed;
   display: grid;
   grid-template-rows: 1fr ${({ theme }) => theme.navBarHeight};
 `

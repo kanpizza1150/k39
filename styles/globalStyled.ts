@@ -1,4 +1,24 @@
 import * as styled from 'styled-components'
+export const COLORS = {
+  dark: '#34342C',
+  light: '#ffffff',
+  darkGreen: '#6D7468',
+  darkGold: '#847743',
+  lightGold: '#8C8C80',
+  gold: '#FAD364',
+  grey: '#B8BFD6',
+
+  shadow: '#bcbcbc',
+  shadowLight: '#eeeeee',
+  shadowDark: '#999999',
+
+  dandelion: '#FFD767',
+  romance: '#FFFEFD',
+  dune: '#32362D',
+  rangitoto: '#2E3222',
+  indigo: '#4F6FDF',
+  willow: '#6A7062',
+}
 
 const commonTheme: styled.DefaultTheme = {
   navBarHeight: '80px',
@@ -8,7 +28,7 @@ const commonTheme: styled.DefaultTheme = {
 export const lightTheme: styled.DefaultTheme = {
   ...commonTheme,
   colors: {
-    primary: '#000000',
+    primary: '#34342C',
     background: '#ffffff',
 
     grey: '#bcbcbc',
@@ -17,7 +37,7 @@ export const lightTheme: styled.DefaultTheme = {
 
     semenBackground: {
       0: '#dfaf5e',
-      1: '#61714d',
+      1: '#B8BFD6',
     },
   },
   boxShadow: `0px 0px 19px 1px rgba(0, 0, 0, 0.1)`,
@@ -26,7 +46,7 @@ export const darkTheme: styled.DefaultTheme = {
   ...commonTheme,
   colors: {
     primary: '#ffffff',
-    background: '#000000',
+    background: COLORS.dune,
 
     grey: '#bcbcbc',
     greyLight: '#eeeeee',
@@ -34,7 +54,7 @@ export const darkTheme: styled.DefaultTheme = {
 
     semenBackground: {
       0: '#dfaf5e',
-      1: '#61714d',
+      1: '#B8BFD6',
     },
   },
   boxShadow: `0px 0px 19px 1px rgba(1, 1, 1, 0.1)`,

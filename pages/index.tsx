@@ -13,36 +13,31 @@ export interface IDashboardProps extends IPageProps {
     totalNormalSemen: number
   }
 }
-const Semens: NextPage = ({
+const DashboardPage: NextPage = ({
   semen,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   return <Dashboard semen={semen} />
 }
 
-export default Semens
+export default DashboardPage
 
 export const getServerSideProps: GetServerSideProps = async (): Promise<{
   props: IDashboardProps
-  notFound: boolean
 }> => {
   const semenList: ISemenListAxios = await axiosApiRequest(
     EnumRequestMethod.GET,
     '/semens'
   )
-  const totalSemen: number = semenList.data.reduce(
-    (acc: number, cur: ISemen) => acc + cur.stock,
+  const totalSemen: number =
+    semenList?.data?.reduce((acc: number, cur: ISemen) => acc + cur.stock, 0) ||
     0
-  )
-  const totalSexedSemen: number = semenList.data.reduce(
-    (acc: number, cur: ISemen) => {
+  const totalSexedSemen: number =
+    semenList?.data?.reduce((acc: number, cur: ISemen) => {
       if (cur.type === 1) {
         return acc + cur.stock
       }
       return acc
-    },
-    0
-  )
-
+    }, 0) || 0
   return {
     props: {
       semen: {
@@ -52,6 +47,5 @@ export const getServerSideProps: GetServerSideProps = async (): Promise<{
       },
       header: { title: 'K39' },
     },
-    notFound: semenList.error,
   }
 }

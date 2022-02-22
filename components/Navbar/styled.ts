@@ -1,13 +1,15 @@
 import styled, { css } from 'styled-components'
+import { COLORS } from '../../styles/globalStyled'
 
 export const Container = styled.div`
   width: 100vw;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: black;
+  /* background-color: ${({ theme }) => theme.colors.primary}; */
+  background-color: ${COLORS.romance};
   height: ${({ theme }) => theme.navBarHeight};
-  box-shadow: 0px -9px 0 0 white;
+  box-shadow: 0px -9px 0 0 ${COLORS.dark};
   z-index: 1;
 `
 export const ButtonWrapper = styled.div`
@@ -15,7 +17,8 @@ export const ButtonWrapper = styled.div`
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  background-color: black;
+  background-color: ${COLORS.romance};
+  /* background-color: ${({ theme }) => theme.colors.primary}; */
   position: relative;
 `
 
@@ -29,7 +32,8 @@ export const LinkButton = styled.button`
   z-index: 1;
   margin-bottom: 10px;
   p {
-    color: white;
+    color: ${COLORS.darkGold};
+    font-weight: bold;
   }
 `
 
@@ -50,8 +54,8 @@ export const Indicator = styled.div<{
   isActive?: boolean
 }>`
   border-radius: 50%;
-  border: 5px solid white;
-  background-color: ${({ theme }) => theme.colors.semenBackground['1']};
+  border: 5px solid ${COLORS.dark};
+  background-color: ${COLORS.dandelion};
   box-shadow: ${({ theme }) => theme.boxShadow};
   width: 70px;
   height: 70px;
@@ -66,7 +70,7 @@ export const Indicator = styled.div<{
     left: -23px;
     width: 24px;
     height: 20px;
-    box-shadow: 0px -10px 0 0 white;
+    box-shadow: 0px -10px 0 0 ${COLORS.dark};
     border-top-right-radius: 20px;
   }
   &::after {
@@ -76,7 +80,7 @@ export const Indicator = styled.div<{
     right: -23px;
     width: 24px;
     height: 20px;
-    box-shadow: 0px -10px 0 0 white;
+    box-shadow: 0px -10px 0 0 ${COLORS.dark};
     border-top-left-radius: 20px;
     background-color: transparent;
   }

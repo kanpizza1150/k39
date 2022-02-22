@@ -25,6 +25,7 @@ export const getServerSideProps: GetServerSideProps = async (
   notFound: boolean
 }> => {
   const { id } = context.query
+
   const cattleDetail: ICattleDetailAxios = await axiosApiRequest(
     EnumRequestMethod.GET,
     `/cattle/${id}`

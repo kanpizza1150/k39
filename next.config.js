@@ -20,12 +20,11 @@ module.exports = withPWA({
     loader: 'akamai',
     path: '',
   },
-  async redirects() {
+  async rewrites() {
     return [
       {
         source: '/home',
         destination: '/',
-        permanent: true,
       },
     ]
   },

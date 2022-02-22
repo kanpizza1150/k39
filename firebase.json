@@ -3,6 +3,7 @@
     "public": "public",
     "site": "k39-ranch",
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "cleanUrls": true,
     "rewrites": [
       {
         "source": "**",
@@ -12,6 +13,6 @@
   },
   "functions": {
     "source": ".",
-    "runtime": "nodejs12"
+    "runtime": "nodejs16"
   }
 }

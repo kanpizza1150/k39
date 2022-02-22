@@ -1,12 +1,10 @@
 import styled, { css } from 'styled-components'
 import Button from '../../components/Button'
+import { COLORS } from '../../styles/globalStyled'
 
-export const Container = styled.div`
-  /* padding: ${({ theme }) => theme.pagePadding}; */
-`
+export const Container = styled.div``
 export const Type = styled.div<{ type: number }>`
   border-radius: ${({ theme }) => theme.borderRadius};
-  /* border: 1px solid ${({ type }) => (type > 0 ? 'red' : 'blue')}; */
   padding: 0 5px;
   width: fit-content;
   background-color: ${({ theme, type }) => theme.colors.semenBackground[type]};
@@ -19,7 +17,7 @@ export const Content = styled.div`
   flex-direction: column;
   padding: 10px;
   width: 100%;
-  background-color: ${({ theme }) => theme.colors.greyLight};
+  background-color: rgba(255, 255, 255, 0.2);
   border-radius: 10px;
   padding-top: 50px;
   bottom: 0;

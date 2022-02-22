@@ -78,7 +78,7 @@ const useCattle = (id: string) => {
     switch (status) {
       case PregnancyStatus.FAILED:
         updatePregnencyHistory(PregnancyStatus.FAILED)
-        updatePregnancyStatusOnly(PregnancyStatus.IDLE)
+        // updatePregnancyStatusOnly(PregnancyStatus.IDLE)
         updatePregnency({
           semen: null,
           date: null,

@@ -10,16 +10,14 @@ enum FilterListAll {
   ALL = 'all',
 }
 type IFilterList = FilterListAll | EnumSemenType
-
-const Semen: FC = () => {
-  const { isLoading, isError, semenList } = useSemen()
+interface Props {
+  semenList: any
+}
+const Semen: FC<Props> = ({ semenList }: Props) => {
   const [filter, setFilter] = useState<IFilterList>(FilterListAll.ALL)
-  const [filteredSemenList, setFilteredSemenList] = useState<Array<ISemen>>([])
-  useEffect(() => {
-    if (!isLoading) {
-      setFilteredSemenList(semenList)
-    }
-  }, [isLoading, isError, semenList])
+  const [filteredSemenList, setFilteredSemenList] = useState<Array<ISemen>>(
+    semenList.data
+  )
 
   const filterList: Array<{ label: string; value: IFilterList }> = [
     {
@@ -37,16 +35,13 @@ const Semen: FC = () => {
   ]
   const handleFilter = (val: IFilterList) => {
     setFilter(val)
-    let filtered: Array<ISemen> = semenList
+    let filtered: Array<ISemen> = semenList.data
     if (val !== 'all') {
-      filtered = semenList.filter((semen: ISemen) => semen.type === val)
+      filtered = semenList.data.filter((semen: ISemen) => semen.type === val)
     }
     setFilteredSemenList(filtered)
   }
-
-  return isLoading ? (
-    <Loading />
-  ) : (
+  return (
     <Styled.Container>
       <h1>น้ำเชื้อ</h1>
       <Styled.FilterButtonWrapper>

@@ -8,15 +8,14 @@ import axiosApiRequest, { EnumRequestMethod } from '../../util/axios'
 import CattleList from '../../container/cattle'
 interface ICattleProps extends IPageProps {
   cattleList: ICattleListAxios
+  err?: any
 }
 const Cattle: NextPage = ({
   cattleList,
-  notFound,
+  ...props
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
-  console.log({ notFound })
   return (
     <>
-      {notFound}
       <CattleList cattleList={cattleList} />
     </>
   )
@@ -27,6 +26,7 @@ export default Cattle
 export const getServerSideProps: GetServerSideProps = async (): Promise<{
   props: ICattleProps
   notFound: boolean
+  err?: any
 }> => {
   const cattleList: ICattleListAxios = await axiosApiRequest(
     EnumRequestMethod.GET,

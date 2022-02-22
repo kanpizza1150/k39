@@ -67,11 +67,9 @@ const CattleDetail: FC<IProps> = ({ cattleDetail }: IProps) => {
           <span>{secondPassed ? '✅' : failedInsemination ? '❌' : '⏳'}</span>
           {calculateArtificialInseminationDate(42)}
         </p>
-        <Button
-          onClick={() => updatePregnancyStatus(PregnancyStatus.FIRST_PASSED)}
-        >
+        {/* <Button onClick={() => updatePregnancyStatus(PregnancyStatus.FAILED)}>
           เปลี่ยน status
-        </Button>
+        </Button> */}
       </div>
       <div>
         ประวัติการผสม:
@@ -90,9 +88,9 @@ const CattleDetail: FC<IProps> = ({ cattleDetail }: IProps) => {
         เป็นสัด:{' '}
         {rut &&
           rut.map((date: string, index: number) => <p key={index}>{date}</p>)}
-        <Button onClick={() => updateRutDate('20/12/2021')}>
+        {/* <Button onClick={() => updateRutDate('12-02-2022')}>
           เพิ่มวันเป็นสัด
-        </Button>
+        </Button> */}
       </div>
     </Styled.Container>
   )

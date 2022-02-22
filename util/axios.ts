@@ -19,11 +19,12 @@ const axiosApiRequest = async (
   let error: boolean = false
   let loading: boolean = true
   let response: AxiosResponse['data']
+  let err
   await axios({
     method: method,
     url: `${API_URL}${path}`,
     headers: {
-      Authorization: 'xxx',
+      // Authorization: 'xxx',
     },
     ...config,
   })
@@ -32,6 +33,7 @@ const axiosApiRequest = async (
       loading = false
     })
     .catch((err: AxiosError) => {
+      console.log('err:>>', err)
       error = true
       loading = false
     })
