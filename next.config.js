@@ -1,5 +1,5 @@
-const path = require('path')
-const withPWA = require('next-pwa')
+import withPWA from 'next-pwa'
+import path from 'path'
 
 module.exports = withPWA({
   env: {

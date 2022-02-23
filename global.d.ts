@@ -1,6 +1,6 @@
 import { Connection } from 'mongoose'
 
-declare module NodeJS {
+declare namespace NodeJS {
   interface Global {
     mongoose: Connection
   }

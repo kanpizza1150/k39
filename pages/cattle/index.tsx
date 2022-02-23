@@ -12,7 +12,6 @@ interface ICattleProps extends IPageProps {
 }
 const Cattle: NextPage = ({
   cattleList,
-  ...props
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   return (
     <>

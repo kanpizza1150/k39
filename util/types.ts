@@ -1,11 +1,12 @@
+import { NextApiRequest, NextApiResponse } from 'next'
 import { IAxiosResponse } from './axios'
 import { EnumPregnancyStatus } from './enums'
 
 export interface ResponseFuncs {
-  GET?: Function
-  POST?: Function
-  PUT?: Function
-  DELETE?: Function
+  GET?: (req: NextApiRequest, res: NextApiResponse) => Promise<void>
+  POST?: (req: NextApiRequest, res: NextApiResponse) => Promise<void>
+  PUT?: (req: NextApiRequest, res: NextApiResponse) => Promise<void>
+  DELETE?: (req: NextApiRequest, res: NextApiResponse) => Promise<void>
 }
 
 export type ISetState = React.Dispatch<React.SetStateAction<any>>

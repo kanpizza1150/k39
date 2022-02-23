@@ -1,9 +1,7 @@
 import Image from '../../components/Image'
-import React, { FC, useEffect, useState } from 'react'
-import useSemen from '../../hook/semen'
+import React, { FC, useState } from 'react'
 import { EnumSemenType } from '../../util/enums'
 import { ISemen } from '../../util/types'
-import Loading from '../Loading'
 import * as Styled from './styed'
 
 enum FilterListAll {
@@ -58,7 +56,7 @@ const Semen: FC<Props> = ({ semenList }: Props) => {
       {filteredSemenList.map((semen: ISemen) => (
         <Styled.Card key={semen._id}>
           <Styled.ImageWrapper>
-            <Image src={semen?.img || ''} alt={semen.title} layout='fill' />
+            <Image src={semen?.img || ''} alt={semen.title} layout="fill" />
           </Styled.ImageWrapper>
           <Styled.ContentWrapper>
             <Styled.Content>

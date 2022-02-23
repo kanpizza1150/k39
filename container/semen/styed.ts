@@ -1,6 +1,5 @@
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import Button from '../../components/Button'
-import { COLORS } from '../../styles/globalStyled'
 
 export const Container = styled.div``
 export const Type = styled.div<{ type: number }>`

@@ -1,5 +1,4 @@
 import type { AppProps } from 'next/app'
-import dynamic from 'next/dynamic'
 import Head from 'next/head'
 import { useEffect, useState } from 'react'
 import Router from 'next/router'
@@ -10,10 +9,9 @@ import '@fontsource/prompt'
 import '@fontsource/prompt/700.css'
 import Loading from '../container/Loading'
 import Layout from '../components/Layout'
-import useWindowDimensions from '../hook/useWindowDimension'
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const [isDarkTheme, setIsDarkTheme] = useState<boolean>(true)
+  const [isDarkTheme] = useState<boolean>(true)
   const [loading, setLoading] = useState(false)
   useEffect(() => {
     const start = () => {
@@ -35,8 +33,8 @@ function MyApp({ Component, pageProps }: AppProps) {
     <>
       <Head>
         <title>{pageProps?.header?.title || 'K39'}</title>
-        <link rel='icon' href='/icons/favicon.ico' />
-        <link rel='manifest' href='/manifest.json' />
+        <link rel="icon" href="/icons/favicon.ico" />
+        <link rel="manifest" href="/manifest.json" />
       </Head>
 
       <ThemeProvider theme={isDarkTheme ? darkTheme : lightTheme}>

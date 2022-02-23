@@ -1,11 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import { ResponseFuncs } from './types'
 
-export const getMethod: (req: NextApiRequest) => keyof ResponseFuncs = (
-  req
-) => {
-  return req.method as keyof ResponseFuncs
-}
 export const handleCatch: (res: NextApiResponse, error: Error) => void = (
   res: NextApiResponse,
   error: Error

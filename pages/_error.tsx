@@ -1,4 +1,4 @@
-import { NextPage, NextPageContext } from 'next'
+import { NextPage } from 'next'
 import React from 'react'
 import * as Styled from '../styles/notFound'
 const Error: NextPage = ({ statusCode }: any) => {

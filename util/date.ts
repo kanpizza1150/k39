@@ -2,7 +2,6 @@ import {
   format,
   addYears,
   differenceInMonths,
-  differenceInYears,
   differenceInDays,
 } from 'date-fns'
 import { th } from 'date-fns/locale'
@@ -38,6 +37,6 @@ export interface IGetAgeFromDateRes {
 export const getAgeFromDate = (date: Date): IGetAgeFromDateRes => {
   const days: number = differenceInDays(new Date(), date)
   const month: number = differenceInMonths(new Date(), date)
-  const years: string = `${Math.floor(month / 12)} ปี ${month % 12} เดือน`
+  const years = `${Math.floor(month / 12)} ปี ${month % 12} เดือน`
   return { days, months: `${month} เดือน`, years }
 }

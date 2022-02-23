@@ -5,8 +5,7 @@ import semenIcon from '../../public/icons/tube.svg'
 import chartIcon from '../../public/icons/chart.svg'
 import { NextRouter, useRouter } from 'next/router'
 import Image from '../Image'
-interface IProps {}
-const Navbar: FC<IProps> = () => {
+const Navbar: FC = () => {
   const paths: Record<'home' | 'cattle' | 'semen', string> = {
     home: '/home',
     cattle: '/cattle',
@@ -17,14 +16,6 @@ const Navbar: FC<IProps> = () => {
     router.push(path)
   }
   const activePath = router.pathname
-
-  // const checkIsActive = (path: string): boolean => {
-  //   if (path === paths.semen || path === paths.cattle) {
-  //     return activePath.includes(path)
-  //   } else {
-  //     return true
-  //   }
-  // }
 
   const getActivePathIndex = (): number => {
     if (activePath.includes(paths.cattle)) {
@@ -41,21 +32,21 @@ const Navbar: FC<IProps> = () => {
       <Styled.ButtonWrapper>
         <Styled.LinkButton onClick={() => handleRedirect(paths.home)}>
           <Styled.Icon isActive={getActivePathIndex() === 0}>
-            <Image src={chartIcon} alt='' width={25} height={25} />
+            <Image src={chartIcon} alt="" width={25} height={25} />
           </Styled.Icon>
           {getActivePathIndex() === 0 && <p>สรุป</p>}
         </Styled.LinkButton>
 
         <Styled.LinkButton onClick={() => handleRedirect(paths.cattle)}>
           <Styled.Icon isActive={getActivePathIndex() === 1}>
-            <Image src={cowIcon} alt='' width={25} height={25} />
+            <Image src={cowIcon} alt="" width={25} height={25} />
           </Styled.Icon>
           {getActivePathIndex() === 1 && <p>วัว</p>}
         </Styled.LinkButton>
 
         <Styled.LinkButton onClick={() => handleRedirect(paths.semen)}>
           <Styled.Icon isActive={getActivePathIndex() === 2}>
-            <Image src={semenIcon} alt='' width={25} height={25} />
+            <Image src={semenIcon} alt="" width={25} height={25} />
           </Styled.Icon>
           {getActivePathIndex() === 2 && <p>น้ำเชื้อ</p>}
         </Styled.LinkButton>

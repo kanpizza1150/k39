@@ -16,10 +16,9 @@ const axiosApiRequest = async (
   config?: Record<string, any>
 ): Promise<IAxiosResponse> => {
   const { API_URL } = process.env
-  let error: boolean = false
-  let loading: boolean = true
+  let error = false
+  let loading = true
   let response: AxiosResponse['data']
-  let err
   await axios({
     method: method,
     url: `${API_URL}${path}`,
