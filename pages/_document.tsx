@@ -5,16 +5,16 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          <link rel='manifest' href='/manifest.json' />
+          <link rel="manifest" href="/manifest.json" />
           <link
-            rel='apple-touch-icon'
-            href='icons/android-chrome-192x192.png'
+            rel="apple-touch-icon"
+            href="icons/android-chrome-192x192.png"
           />
           <link
-            rel='apple-touch-icon'
-            href='icons/android-chrome-512x512.png'
+            rel="apple-touch-icon"
+            href="icons/android-chrome-512x512.png"
           />
-          <link rel='apple-touch-icon' href='icons/apple-touch-icon.png' />
+          <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
         </Head>
         <body>
           <Main />

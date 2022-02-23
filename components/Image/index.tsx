@@ -12,6 +12,6 @@ const Image: FC<Props> = (props: Props) => {
       blurDataURL: '/icons/loader.gif',
     }
   }
-  return <NextImage loading='lazy' {...optimizeProps} {...props} />
+  return <NextImage loading="lazy" {...optimizeProps} {...props} />
 }
 export default Image
