@@ -109,7 +109,6 @@ const CattleDetail: FC<IProps> = ({ cattleDetail }: IProps) => {
       </Styled.BoxWrapper>
     )
   }, [rut])
-
   return (
     <Styled.Container>
       <h1>

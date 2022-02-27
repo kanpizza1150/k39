@@ -4,9 +4,9 @@
   "private": true,
   "main": "server.js",
   "scripts": {
-    "dev": "PORT=3000 next dev",
+    "dev": "next dev",
     "build": "next build",
-    "start": "PORT=8081 next start",
+    "start": "next start",
     "lint": "next lint",
     "deploy": "yarn build && firebase deploy --only functions,hosting",
     "prepare": "husky"
