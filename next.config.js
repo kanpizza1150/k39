@@ -1,8 +1,6 @@
-/**
- * @type {import('next').NextConfig}
- */
-import withPWA from 'next-pwa'
-import path from 'path'
+/* eslint-disable @typescript-eslint/no-var-requires */
+const withPWA = require('next-pwa')
+const path = require('path')
 
 module.exports = withPWA({
   env: {
