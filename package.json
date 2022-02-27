@@ -3,6 +3,7 @@
   "license": "MIT",
   "private": true,
   "main": "server.js",
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

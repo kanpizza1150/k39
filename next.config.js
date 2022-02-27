@@ -1,3 +1,6 @@
+/**
+ * @type {import('next').NextConfig}
+ */
 import withPWA from 'next-pwa'
 import path from 'path'
 
