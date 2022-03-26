@@ -38,6 +38,7 @@ export const getServerSideProps: GetServerSideProps = async (): Promise<{
       }
       return acc
     }, 0) || 0
+
   return {
     props: {
       semen: {

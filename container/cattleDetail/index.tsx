@@ -116,8 +116,8 @@ const CattleDetail: FC<IProps> = ({ cattleDetail }: IProps) => {
         {nickname ? ` (${nickname})` : ''}
       </h1>
       {renderInfo()}
-      {renderPregnancy()}
-      {renderRuts()}
+      {/* {renderPregnancy()} */}
+      {/* {renderRuts()} */}
     </Styled.Container>
   )
 }
